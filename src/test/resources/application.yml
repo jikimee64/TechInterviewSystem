@@ -1,6 +1,6 @@
 spring:
   profiles:
-    default: h2
+    default: test
   jpa:
     properties:
       org.hibernate.envers.audit_table_suffix: _history
