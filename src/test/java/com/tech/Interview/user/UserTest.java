@@ -7,6 +7,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class UserTest {
 
+    public static User createUser(String userId, String email) {
+        return User.builder()
+                .userId(userId)
+                .email(email)
+                .build();
+    }
+
     @Test
     @DisplayName("성공 - 유저의 이메일을 수정할 수 있다.")
     void success_user_email_update() {

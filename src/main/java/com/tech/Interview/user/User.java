@@ -5,11 +5,15 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.AuditOverride;
+import org.hibernate.envers.Audited;
 
 import java.util.Objects;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Audited
+@AuditOverride(forClass = BaseEntity.class)
 @Table(name = "user")
 public class User extends BaseEntity<User> {
 
@@ -31,6 +35,10 @@ public class User extends BaseEntity<User> {
 
     public String getUserId() {
         return userId;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     @Override
